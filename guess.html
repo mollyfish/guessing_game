@@ -1,0 +1,24 @@
+<script>
+  (function() {
+    var answer = 32;
+    var guess = Number.parseInt(prompt('How many states has Molly visited?'));
+    
+    while (true) {
+    	if (guess === answer) {
+    		alert('You got it! Molly has visited 32 states.');
+    		break;
+    	} else if (guess >= 51) { 
+            guess = Number.parseInt(prompt('Ummm, how many states are there, again?'));
+        } else if (guess >= 37) {  //guess is within 5
+            guess = Number.parseInt(prompt('Nice try, but Molly\'s nowhere near that well traveled.'));
+        } else if (guess > answer) {
+            guess = Number.parseInt(prompt('So close! Molly hasn\'t been to quite that many states yet.'));
+        } else if (guess >= 27) {  //guess is within 5
+            guess = Number.parseInt(prompt('So close! Molly has been to a few more states than that.'));
+        } else if (guess < 27) {
+            guess = Number.parseInt(prompt('Guess again, Molly has been to waaaaay more states than that.'));
+        }
+    }
+
+  })();
+</script>
