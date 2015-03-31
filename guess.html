@@ -1,13 +1,29 @@
 <script>
   (function() {
     var answer = 32;
-    var guess = Number.parseInt(prompt('How many states has Molly visited?'));
-    
+    var guess = prompt('How many states has Molly visited?');
+
     while (true) {
-    	if (guess === answer) {
+    	if (guess == answer) { //since we removed parseInt from var guess in order to make code more concise, we will also need to change the tripple === to the less strict double == in order to have the code accept the string 32 as equal to the int 32.
     		alert('You got it! Molly has visited 32 states.');
+
+            //Adding another feature.  Guess what the last visited state was.
+            while (true) {
+                var guess2 = prompt('Molly lives in Washington. What was the last state she visited?');
+                answer2 = 'idaho';
+                if (guess2 === answer2) {
+                    alert('Good job! ...Are you stalking Molly?');
+                    break;
+                }
+                else if (guess2 !== 'oregon' && guess2 !== 'alaska') {
+                    guess2 = prompt('No. You\'re not even in the North Western region!');
+                }
+                else {
+                    guess2 = prompt('Hint: she drove home.');
+                };
+            };
     		break;
-    	} else if (guess >= 51) { 
+    	} else if (guess >= 51) {
             guess = Number.parseInt(prompt('Ummm, how many states are there, again?'));
         } else if (guess >= 37) {  //guess is within 5
             guess = Number.parseInt(prompt('Nice try, but Molly\'s nowhere near that well traveled.'));
@@ -17,8 +33,8 @@
             guess = Number.parseInt(prompt('So close! Molly has been to a few more states than that.'));
         } else if (guess < 27) {
             guess = Number.parseInt(prompt('Guess again, Molly has been to waaaaay more states than that.'));
-        }
-    }
+        };//missing semi-colons
+    };//missing semi-colons
 
   })();
 </script>
