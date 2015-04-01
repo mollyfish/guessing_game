@@ -17,7 +17,7 @@
 
   var bob = new TravelBuddy("bob hope", "nevada", "train", "oklahoma");
   var steve = new TravelBuddy("steve jobs", "california", "segway", "new york");
-  var mary = new TravelBuddy("mary quitecontrary", "oregon", "car", "utah");
+  var mary = new TravelBuddy("mary poppins", "oregon", "car", "utah");
   var sally = new TravelBuddy("sally fields", "florida", "foot", "maine");
 
   while (true) {
@@ -25,10 +25,26 @@
     	alert('You got it! Molly has visited 32 states.');
     
 //Changing this feature to be more complex so I can have more fun with the code.
-      var guess2 = prompt('Molly has 18 states left to visit. Which of these is she going to next?'+'\n\n'+toVisit);
+      var guess2 = prompt('Molly has 18 states left to visit. Which of these is she going to next?'+'\n\n'+toVisit).toLowerCase();
       while (true) {        
         if (guess2 === answer2) {
           alert('You got it! She\'s doing the Chattanooga Ironman next Fall.');
+            var userFaveState = prompt('We want to find you a travel buddy.\n\nWhat is your favorite state?').toLowerCase();
+            while (true) {
+              if (userFaveState === bob.faveState) {
+                alert('We found you a travel buddy: '+bob.name+'!');
+              } else if (userFaveState === steve.faveState) {
+                alert('We found you a travel buddy: '+steve.name+'!');
+              } else if (userFaveState === mary.faveState) {
+                alert('We found you a travel buddy: '+mary.name+'!');
+              } else if (userFaveState === sally.faveState) {
+                alert('We found you a travel buddy: '+sally.name+'!');
+              } else { //add an option to enter another state?
+                alert('No one we know matches your travel criteria - looks like you\'re going solo.');
+              break;
+              }
+              
+            };
         break;
         } else if (visitedStates.indexOf(guess2)+1) {
           guess2 = prompt('Nope.  Molly has already been there.\n\nGuess again.');
