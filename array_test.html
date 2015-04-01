@@ -1,0 +1,39 @@
+<script>
+(function() {
+
+var answer = 'washington';
+var guess = prompt('What is the best state?').toLowerCase();
+var NW_States = ['oregon', 'alaska', 'idaho'];
+var FW_States = ['california', 'nevada', 'hawaii'];
+var NC_States = ['montana', 'wyoming', 'north dakota', 'south dakota', 'nebraska'];
+var C_States = ['minnesota', 'wisconsin', 'michigan', 'iowa', 'illinois', 'indiana', 'ohio','kentucky'];
+var SW_States = ['arizona', 'new mexico', 'colorado', 'utah'];
+var MC_States = ['texas', 'oklahoma', 'kansas', 'missouri', 'arkansas'];
+var SE_States = ['louisiana', 'mississippi', 'alabama', 'georgia', 'florida', 'south carolina', 'north carolina', 'tennessee'];
+var NE_States = ['maine', 'vermont', 'new hampshire', 'connecticut', 'rhode island', 'massachusetts'];
+var E_States = ['virginia', 'west virginia', 'maryland', 'delaware', 'new jersey', 'pennsylvania','new york'];
+
+  while (true) {
+    if (guess === answer) {
+      alert('You got it!');
+    break;
+    } else if (NW_States.indexOf(guess)+1) {
+        guess = prompt('Close! The NW is best.');
+    } else if (FW_States.indexOf(guess)+1 || SW_States.indexOf(guess)+1) {
+        guess = prompt('Close! Try going north.');
+    } else if (NC_States.indexOf(guess)+1) {
+        guess = prompt('Close! Try going west.');
+    } else if (C_States.indexOf(guess)+1) {
+        guess = prompt('Not quite. This whole region is too flat and too cold in the winter.');
+    } else if (MC_States.indexOf(guess)+1) {
+        guess = prompt('Not quite. This whole region is too flat and too hot in the summer.');
+    } else if ((SE_States.indexOf(guess)+1 || E_States.indexOf(guess)+1) || NE_States.indexOf(guess)+1) {
+        guess = prompt('Not even close! Wrong coast, my friend.');
+    } else {  
+        guess = prompt('Is that a state? Are you sure you spelled that right?');
+    } 
+  };
+    
+
+  })();
+</script>
