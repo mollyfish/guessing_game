@@ -1,40 +1,44 @@
 <script>
-  (function() {
-    var answer = 32;
-    var guess = prompt('How many states has Molly visited?');
+(function() {
 
-    while (true) {
-    	if (guess == answer) { //since we removed parseInt from var guess in order to make code more concise, we will also need to change the tripple === to the less strict double == in order to have the code accept the string 32 as equal to the int 32.
-    		alert('You got it! Molly has visited 32 states.');
+  var answer = 32;
+  var guess = Number.parseInt(prompt('How many states has Molly visited?'));
+  var answer2 = 'Tennessee';
+  
+  var unVisitedStates = ['Nebraska', 'Michigan', 'Indiana', 'Ohio', 'Kentucky', 'Oklahoma', 'Kansas', 'Missouri', 'Arkansas', 'Georgia', 'Tennessee', 'Florida', 'South Carolina', 'North Carolina', 'Connecticut', 'West Virginia', 'Delaware', 'New Jersey'];
+  var visitedStates = ['Oregon', 'Alaska', 'Idaho', 'California', 'Nevada', 'Hawaii', 'Montana', 'Wyoming', 'North Dakota', 'South Dakota', 'Minnesota', 'Wisconsin', 'Iowa', 'Illinois', 'Arizona', 'New Mexico', 'Colorado', 'Utah', 'Texas', 'Louisiana', 'Mississippi', 'Alabama', 'Maine', 'Vermont', 'New Hampshire', 'Rhode Island', 'Massachusetts', 'Virginia', 'Maryland', 'Pennsylvania','New York'];
+  var toVisit = unVisitedStates.join(', ');
 
-            //Adding another feature.  Guess what the last visited state was.
-            while (true) {
-                var guess2 = prompt('Molly lives in Washington. What was the last state she visited?');
-                answer2 = 'idaho';
-                if (guess2 === answer2) {
-                    alert('Good job! ...Are you stalking Molly?');
-                    break;
-                }
-                else if (guess2 !== 'oregon' && guess2 !== 'alaska') {
-                    guess2 = prompt('No. You\'re not even in the North Western region!');
-                }
-                else {
-                    guess2 = prompt('Hint: she drove home.');
-                };
-            };
-    		break;
-    	} else if (guess >= 51) {
-            guess = Number.parseInt(prompt('Ummm, how many states are there, again?'));
-        } else if (guess >= 37) {  //guess is within 5
-            guess = Number.parseInt(prompt('Nice try, but Molly\'s nowhere near that well traveled.'));
-        } else if (guess > answer) {
-            guess = Number.parseInt(prompt('So close! Molly hasn\'t been to quite that many states yet.'));
-        } else if (guess >= 27) {  //guess is within 5
-            guess = Number.parseInt(prompt('So close! Molly has been to a few more states than that.'));
-        } else if (guess < 27) {
-            guess = Number.parseInt(prompt('Guess again, Molly has been to waaaaay more states than that.'));
-        };//missing semi-colons
-    };//missing semi-colons
+  while (true) {
+    if (guess === answer) {
+    	alert('You got it! Molly has visited 32 states.');
+    break;  
+//Changing this feature to be more complex so I can have more fun with the code.
+      while (true) {
+        var guess2 = prompt('Molly has 18 states left to visit. Which of these is she going to   next?'+'\n\n'+toVisit);
+        if (guess2 === answer2) {
+          alert('You got it! She\'s doing the Chattanooga Ironman next Fall.');
+        break;
+        } else if (visitedStates.indexOf(guess2)+1) {
+          guess2 = prompt('Nope.  Molly has already been there.\n\nGuess again.');
+        } else if (unVisitedStates.indexOf(guess2)+1) {
+          guess2 = prompt('Nope!\n\nHere\'s a hint:');
+        } else {  
+          guess2 = prompt('Is that a state? Are you sure you spelled that right?');
+        } 
+      };
+    } else if (guess >= 51) {
+      guess = Number.parseInt(prompt('Ummm, how many states are there, again?'));
+    } else if (guess >= 37) {  //guess is within 5
+      guess = Number.parseInt(prompt('Nice try, but Molly\'s nowhere near that well traveled.'));
+    } else if (guess > answer) {
+      guess = Number.parseInt(prompt('So close! Molly hasn\'t been to that many states yet.'));
+    } else if (guess >= 27) {  //guess is within 5
+      guess = Number.parseInt(prompt('So close! Molly has been to more states than that.'));
+    } else if (guess < 27) {
+      guess = Number.parseInt(prompt('Guess again, Molly has been to waaaaay more states than that.'));
+  };
+};
 
-  })();
+})();
 </script>
