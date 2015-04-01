@@ -1,13 +1,24 @@
 <script>
 (function() {
-
   var answer = 32;
   var guess = Number.parseInt(prompt('How many states has Molly visited?'));
   var answer2 = 'tennessee';
-  
   var unVisitedStates = ['nebraska', 'michigan', 'indiana', 'ohio', 'kentucky', 'oklahoma', 'kansas', 'missouri', 'arkansas', 'georgia', 'florida', 'tennessee', 'south carolina', 'north carolina', 'connecticut', 'west virginia', 'delaware', 'new jersey'];
   var visitedStates = ['oregon', 'alaska', 'idaho', 'colorado', 'california', 'nevada', 'hawaii', 'montana', 'wyoming', 'north dakota', 'south dakota', 'minnesota', 'wisconsin', 'iowa', 'illinois', 'arizona', 'new mexico', '', 'utah', 'texas', 'louisiana', 'mississippi', 'alabama', 'maine', 'vermont', 'new hampshire', 'rhode island', 'massachusetts', 'virginia', 'maryland', 'pennsylvania','new york'];
   var toVisit = unVisitedStates.join(', ');
+
+  //this is my constructor
+  function TravelBuddy (name, homeState, transport, faveState) {
+    this.name = name;
+    this.homeState = homeState;
+    this.transport = transport;
+    this.faveState = faveState;
+  }
+
+  var bob = new TravelBuddy("bob hope", "nevada", "train", "oklahoma");
+  var steve = new TravelBuddy("steve jobs", "california", "segway", "new york");
+  var mary = new TravelBuddy("mary quitecontrary", "oregon", "car", "utah");
+  var sally = new TravelBuddy("sally fields", "florida", "foot", "maine");
 
   while (true) {
     if (guess === answer) {
@@ -18,14 +29,6 @@
       while (true) {        
         if (guess2 === answer2) {
           alert('You got it! She\'s doing the Chattanooga Ironman next Fall.');
-//adding a feature to collect user info and match to other 'travelers'
-          
-            var favState = prompt('What is you favorite state?');
-            
-          
-
-
-
         break;
         } else if (visitedStates.indexOf(guess2)+1) {
           guess2 = prompt('Nope.  Molly has already been there.\n\nGuess again.');
