@@ -12,10 +12,10 @@
   while (true) {
     if (guess === answer) {
     	alert('You got it! Molly has visited 32 states.');
-    break;  
+     
 //Changing this feature to be more complex so I can have more fun with the code.
       while (true) {
-        var guess2 = prompt('Molly has 18 states left to visit. Which of these is she going to   next?'+'\n\n'+toVisit);
+        var guess2 = prompt('Molly has 18 states left to visit. Which of these is she going to next?'+'\n\n'+toVisit);
         if (guess2 === answer2) {
           alert('You got it! She\'s doing the Chattanooga Ironman next Fall.');
         break;
@@ -27,6 +27,7 @@
           guess2 = prompt('Is that a state? Are you sure you spelled that right?');
         } 
       };
+    break; 
     } else if (guess >= 51) {
       guess = Number.parseInt(prompt('Ummm, how many states are there, again?'));
     } else if (guess >= 37) {  //guess is within 5
