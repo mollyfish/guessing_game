@@ -1,17 +1,25 @@
 <script>
 (function() {
-  counter = 4;
+  var counter = 4;
   var answer = 32;
   var guess = Number.parseInt(prompt('How many states has Molly visited?'));
   var answer2 = 'tennessee';
-  var unVisitedStates = ['nebraska', 'michigan', 'indiana', 'ohio', 'kentucky', 'oklahoma', 'kansas', 'missouri', 'arkansas', 'georgia', 'florida', 'tennessee', 'south carolina', 'north carolina', 'connecticut', 'west virginia', 'delaware', 'new jersey'];
-  var visitedStates = ['oregon', 'alaska', 'idaho', 'colorado', 'california', 'nevada', 'hawaii', 'montana', 'wyoming', 'north dakota', 'south dakota', 'minnesota', 'wisconsin', 'iowa', 'illinois', 'arizona', 'new mexico', '', 'utah', 'texas', 'louisiana', 'mississippi', 'alabama', 'maine', 'vermont', 'new hampshire', 'rhode island', 'massachusetts', 'virginia', 'maryland', 'pennsylvania','new york'];
+  var unVisitedStates = ['nebraska', 'michigan', 'indiana', 'ohio', 'kentucky', 'oklahoma', 
+                        'kansas', 'missouri', 'arkansas', 'georgia', 'florida', 'tennessee', 
+                        'south carolina', 'north carolina', 'connecticut', 'west virginia', 
+                        'delaware', 'new jersey'];
+  var visitedStates = ['oregon', 'alaska', 'idaho', 'colorado', 'california', 'nevada', 
+                      'hawaii', 'montana', 'wyoming', 'north dakota', 'south dakota', 
+                      'minnesota', 'wisconsin', 'iowa', 'illinois', 'arizona', 'new mexico',
+                      'utah', 'texas', 'louisiana', 'mississippi', 'alabama', 'maine', 
+                      'vermont', 'new hampshire', 'rhode island', 'massachusetts', 'virginia', 
+                      'maryland', 'pennsylvania','new york'];
   var toVisit = unVisitedStates.join(', ');
 
 //this is my Hint constructor
   function Hint(text) {
     this.text = text;
-    
+
   }
   var hint1 = new Hint('The state motto is "Agriculture and Commerce."');
   var hint2 = new Hint('The state bird is the Mockingbird.');
@@ -34,16 +42,17 @@
         if (guess2 === answer2) {
           alert('You got it! She\'s doing the Chattanooga Ironman next Fall.');
         break;
+//counter and guess numbering isn't working. 
         } else if (visitedStates.indexOf(guess2)+1) {
           do {
             guess2 = prompt('Nope.  Molly has already been there.\n\nHere\'s a hint: ' + hintTN);
             counter--;
-          } while (guess2 !== answer2 && counter >0);
+          } while (guess2 !== answer2 && counter > 0);
         } else if (unVisitedStates.indexOf(guess2)+1) {
           do {
             guess2 = prompt('Nope!\n\nHere\'s a hint: ' + hintTN);
             counter--;
-          } while (guess2 !== answer2 && counter >0);
+          } while (guess2 !== answer2 && counter > 0);
         } else {
                 alert('I bet you\'re sick of guessing.  The answer is Tennessee - Molly wants to do the Chattanooga Ironman there next Fall.');
                 break;
