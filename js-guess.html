@@ -4,7 +4,6 @@
   var gotIt = false;
   var answer = 32;
   var answer2 = 'tennessee';
-  var toVisit = unVisitedStates.join(', ');
   var hint1 = new Hint('The state motto is "Agriculture and Commerce"');
   var hint2 = new Hint('The state bird is the Mockingbird');
   var hint3 = new Hint('The highest point in the state is Clingman\'s Dome');
@@ -22,6 +21,7 @@
                       'utah', 'texas', 'louisiana', 'mississippi', 'alabama', 'maine', 
                       'vermont', 'new hampshire', 'rhode island', 'massachusetts', 'virginia', 
                       'maryland', 'pennsylvania','new york'];
+  var toVisit = unVisitedStates.join(', ');//do not put above unVisitedStates
 
   function Hint(text) {
     this.text = text;
