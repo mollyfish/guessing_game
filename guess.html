@@ -4,15 +4,21 @@
   <meta charset="UTF-8">
   <title>Travel Guessing Game</title>
   <link rel="stylesheet" type="text/css" href="styles/guess.css">
-  <link rel="script" type="text/js" href="guess_js.js">
+  <link rel="script" type="text/js" href="scripts/guess.js">
 </head>
 <body>
   <header>
     <h1>Travel Guessing Game</h1>
-    <h2>Guess where Molly has been and where she's going next!</h2><p>Please note that making the state names into proper nouns is very tricky, so forget what your grade school teachers taught you - for now, capitalization doesn't matter!  However, <em>correct spelling is vital</em>.</p>
+    <h2>Guess where Molly has been and where she's going next!</h2>
+      <p>Please note that making the state names into proper nouns is very tricky, so forget what your grade school teachers taught you - for now, capitalization doesn't matter!  However, <em>correct spelling is vital</em>.</p>
   </header>
   <main>
     <h3>How many states has Molly visited?</h3>
+    <form name="visited-states">
+      <label for="guess">Make your guess:</label>
+      <input type="text" id="guess" name="guess" placeholder="50" maxlength="2" size="4">
+      <button type="submit">Submit</button>
+    </form>
     <p>You got it! Molly has visited 32 states.</p>
     <img src="images/visited-states.png" />
     <h3>Molly has 18 states left to visit. Where is she going next?</h3>
