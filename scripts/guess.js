@@ -1,10 +1,10 @@
-<script>
+
 (function() {
   var guesses = 1;
   var gotIt = false;
   var answer = 32;
-  var guess = document.getElementById('guess');
-  Number.parseInt(prompt('How many states has Molly visited?'));
+  var guess = document.getElementById('first-guess');
+  console.log(guess);
   var answer2 = 'tennessee';
   var unVisitedStates = ['nebraska', 'michigan', 'indiana', 'ohio', 'kentucky', 'oklahoma', 
                         'kansas', 'missouri', 'arkansas', 'georgia', 'florida', 'tennessee', 
@@ -17,6 +17,8 @@
                       'vermont', 'new hampshire', 'rhode island', 'massachusetts', 'virginia', 
                       'maryland', 'pennsylvania','new york'];
   var toVisit = unVisitedStates.join(', ');
+
+
 
   function Hint(text) {
     this.text = text;
@@ -59,7 +61,7 @@
       guess = Number.parseInt(prompt('Guess again, Molly has been to waaaaay more states than that.'));
     } else {
       guess = Number.parseInt(prompt('I didn\'t understand your answer. Please try again.'));
+    };
   };
-};
 })();
-</script>
+
