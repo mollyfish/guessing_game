@@ -37,7 +37,7 @@
           gotIt = true
           break;
         }
-        guess2 = prompt('Nope!\n\nHere\'s a hint: ' + hintList[guesses].text + '.');
+        guess2 = prompt('Nope!\n\nHere\'s a hint: ' + hintList[guesses].text + '.').toLowerCase();
       }
       if (gotIt) {
         alert('You got it! It took you ' + guesses + ' guesses.');
