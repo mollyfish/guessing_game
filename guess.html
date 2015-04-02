@@ -1,5 +1,6 @@
 <script>
 (function() {
+  counter = 4;
   var answer = 32;
   var guess = Number.parseInt(prompt('How many states has Molly visited?'));
   var answer2 = 'tennessee';
@@ -7,52 +8,48 @@
   var visitedStates = ['oregon', 'alaska', 'idaho', 'colorado', 'california', 'nevada', 'hawaii', 'montana', 'wyoming', 'north dakota', 'south dakota', 'minnesota', 'wisconsin', 'iowa', 'illinois', 'arizona', 'new mexico', '', 'utah', 'texas', 'louisiana', 'mississippi', 'alabama', 'maine', 'vermont', 'new hampshire', 'rhode island', 'massachusetts', 'virginia', 'maryland', 'pennsylvania','new york'];
   var toVisit = unVisitedStates.join(', ');
 
-  //this is my constructor
-  function TravelBuddy (name, homeState, transport, faveState) {
-    this.name = name;
-    this.homeState = homeState;
-    this.transport = transport;
-    this.faveState = faveState;
+//this is my Hint constructor
+  function Hint(text) {
+    this.text = text;
+    
   }
+  var hint1 = new Hint('The state motto is "Agriculture and Commerce."');
+  var hint2 = new Hint('The state bird is the Mockingbird.');
+  var hint3 = new Hint('The highest point in the state is Clingman\'s Dome.');
+  var hint4 = new Hint('The state capitol is Nashville.');
+  var hint5 = new Hint('The largest city in the state is Nashville.');
+  var hintList = [hint1, hint2, hint3, hint4, hint5];
+    var randHintValue = Math.floor(Math.random() * hintList.length)
+  // Math.floor(Math.random() * hintList.length) --> this is random but randHintValue is always the same in console...WHY? Is this a pass by reference thing?
+  var hintTN = hintList[randHintValue].text;
 
-  var bob = new TravelBuddy("bob hope", "nevada", "train", "oklahoma");
-  var steve = new TravelBuddy("steve jobs", "california", "segway", "new york");
-  var mary = new TravelBuddy("mary poppins", "oregon", "car", "utah");
-  var sally = new TravelBuddy("sally fields", "florida", "foot", "maine");
+
+  
 
   while (true) {
     if (guess === answer) {
     	alert('You got it! Molly has visited 32 states.');
-    
-//Changing this feature to be more complex so I can have more fun with the code.
       var guess2 = prompt('Molly has 18 states left to visit. Which of these is she going to next?'+'\n\n'+toVisit).toLowerCase();
       while (true) {        
         if (guess2 === answer2) {
           alert('You got it! She\'s doing the Chattanooga Ironman next Fall.');
-            var userFaveState = prompt('We want to find you a travel buddy.\n\nWhat is your favorite state?').toLowerCase();
-            while (true) {
-              if (userFaveState === bob.faveState) {
-                alert('We found you a travel buddy: '+bob.name+'!');
-              } else if (userFaveState === steve.faveState) {
-                alert('We found you a travel buddy: '+steve.name+'!');
-              } else if (userFaveState === mary.faveState) {
-                alert('We found you a travel buddy: '+mary.name+'!');
-              } else if (userFaveState === sally.faveState) {
-                alert('We found you a travel buddy: '+sally.name+'!');
-              } else { //add an option to enter another state?
-                alert('No one we know matches your travel criteria - looks like you\'re going solo.');
-              break;
-              }
-              
-            };
         break;
         } else if (visitedStates.indexOf(guess2)+1) {
-          guess2 = prompt('Nope.  Molly has already been there.\n\nGuess again.');
+          do {
+            guess2 = prompt('Nope.  Molly has already been there.\n\nHere\'s a hint: ' + hintTN);
+            counter--;
+          } while (guess2 !== answer2 && counter >0);
         } else if (unVisitedStates.indexOf(guess2)+1) {
-          guess2 = prompt('Nope!\n\nHere\'s a hint:');
-        } else {  
-          guess2 = prompt('Is that a state? Are you sure you spelled that right?');
-        } 
+          do {
+            guess2 = prompt('Nope!\n\nHere\'s a hint: ' + hintTN);
+            counter--;
+          } while (guess2 !== answer2 && counter >0);
+        } else {
+                alert('I bet you\'re sick of guessing.  The answer is Tennessee - Molly wants to do the Chattanooga Ironman there next Fall.');
+                break;
+              } 
+        
+          
       };
     break; 
     } else if (guess >= 51) {
