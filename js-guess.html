@@ -37,7 +37,7 @@
     if (guess === answer) {
     	alert('You got it! Molly has visited 32 states.');
       var guess2 = prompt('Molly has 18 states left to visit. Which of these is she going to next?'+'\n\n'+toVisit).toLowerCase();
-      while (true) {        
+      while (counter < 4) {        
         if (guess2 === answer2) {
           alert('You got it! She\'s doing the Chattanooga Ironman next Fall.');
         break;
