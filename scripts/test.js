@@ -21,6 +21,7 @@
 		var position = document.getElementsByTagName('section')[0];
 		position.appendChild(newForm);
 		newForm.setAttribute('name', 'visited-states')
+		newForm.setAttribute('id','first-form')
 
 		var newLabel = document.createElement('label');
 		newLabel.textContent = 'Put your guess here: ';
@@ -31,8 +32,8 @@
 		var newInput = document.createElement('input');
 		var position = document.getElementsByTagName('form')[0];
 		position.appendChild(newInput);
+		newInput.setAttribute('name', 'firstGuess')
 		newInput.setAttribute('id', 'first-guess')
-		newInput.setAttribute('name', 'first-guess')
 		newInput.setAttribute('placeholder', '50')
 		newInput.setAttribute('maxlength', '2')
 		newInput.setAttribute('size', '4')
@@ -50,18 +51,20 @@
 		var oldContainer = oldButton.parentNode;
 		oldContainer.removeChild(oldButton);*/
 	}
-
 	
+	var firstGuess;
+	console.log(firstGuess);
 
 	function playFirstRound() {
 		var answer = 32;
-		var guess = Number.parseInt(prompt('How many states has Molly visited?'));
+		var guess = Number.parseInt(theInput.value);
   	
   	while (true) {
     	if (guess === answer) {
-
-    		
-	    	alert('You got it! Molly has visited 32 states.');
+    		var congrats1 = document.createElement('p');
+    		congrats1.textContent = 'YOU DID IT!!!';
+    		var position = document.getElementsByTagName('section')[1];
+			position.appendChild(congrats1);
 	    	break;
 	    } else if (guess >= 51) {
 	      guess = Number.parseInt(prompt('Ummm, how many states are there, again?'));
