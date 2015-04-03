@@ -1,9 +1,16 @@
 
 (function() {
+  var roundOneText = '<h3>How many states has Molly visited?</h3>
+                    <form name="visited-states"><label for="guess">Make your guess:</label>
+                    <input type="text" id="first-guess" name="first-guess" 
+                    value="50" maxlength="2" size="4"><button type="submit">Submit</button></form>';
+  document.getElementById('round1').innerHTML = roundOneText;
   var guesses = 1;
   var gotIt = false;
   var answer = 32;
-  var guess = document.getElementById('first-guess');
+  var guessOne = document.getElementById('first-guess');
+  console.log(guessOne);
+  var guess = guessOne.nodeValue;
   console.log(guess);
   var answer2 = 'tennessee';
   var unVisitedStates = ['nebraska', 'michigan', 'indiana', 'ohio', 'kentucky', 'oklahoma', 
