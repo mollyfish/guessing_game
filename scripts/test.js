@@ -22,6 +22,33 @@
 		var userInputOne = Number.parseInt(document.getElementById('round1-guess').value);
 		var guess = userInputOne;
 
+		function hide51() {
+			var over50 = document.getElementById('51+'); //0
+			over50.setAttribute('class', 'hide-this')
+		}
+		function hide37() {
+			var over36 = document.getElementById('>=37'); //1
+			over36.setAttribute('class', 'hide-this')
+		}
+		function hide33() {
+			var over32 = document.getElementById('>=33'); //2
+			over32.setAttribute('class', 'hide-this')
+		}
+		function hide27() {
+			var over28 = document.getElementById('>=27'); //3
+			over28.setAttribute('class', 'hide-this')
+		}
+		function hide26() {
+			var less27 = document.getElementById('<27'); //4
+			less27.setAttribute('class', 'hide-this')
+		}
+		function hideInvalid() {
+			var invalidAns = document.getElementById('invalid1'); //5
+			invalidAns.setAttribute('class', 'hide-this')
+		}
+
+		var rangePrompts = [hide51, hide37, hide33, hide27, hide26, hideInvalid];
+
 		playFirstRound();
 
 		function playFirstRound() {
@@ -30,107 +57,71 @@
     		if (guess === answer) {
     			var wonRound1 = document.getElementById('congrats1');
 					wonRound1.setAttribute('class', 'show-this')
-					var over50 = document.getElementById('51+');
-					over50.setAttribute('class', 'hide-this')
-					var over36 = document.getElementById('>=37');
-					over36.setAttribute('class', 'hide-this')
-					var over32 = document.getElementById('>=33');
-					over32.setAttribute('class', 'hide-this')
-					var over28 = document.getElementById('>=27');
-					over28.setAttribute('class', 'hide-this')
-					var less27 = document.getElementById('<27');
-					less27.setAttribute('class', 'hide-this')
-					var invalidAns = document.getElementById('invalid1');
-					invalidAns.setAttribute('class', 'hide-this')
+					hide51();
+					hide37();
+					hide33();
+					hide27();
+					hide26();
+					hideInvalid();
     			break;
 	    	} else if (guess >= 51) {
 	    		var over50 = document.getElementById('51+');
 					over50.setAttribute('class', 'show-this')
-					var over36 = document.getElementById('>=37');
-					over36.setAttribute('class', 'hide-this')
-					var over32 = document.getElementById('>=33');
-					over32.setAttribute('class', 'hide-this')
-					var over28 = document.getElementById('>=27');
-					over28.setAttribute('class', 'hide-this')
-					var less27 = document.getElementById('<27');
-					less27.setAttribute('class', 'hide-this')
-					var invalidAns = document.getElementById('invalid1');
-					invalidAns.setAttribute('class', 'hide-this')
+					hide37();
+					hide33();
+					hide27();
+					hide26();
+					hideInvalid();
 					guess = Number.parseInt(document.getElementById('round1-guess').value);
 					break;
 	    	} else if (guess >= 37) {  
 	    		var over36 = document.getElementById('>=37');
 					over36.setAttribute('class', 'show-this')
-					var over50 = document.getElementById('51+');
-					over50.setAttribute('class', 'hide-this')
-					var over32 = document.getElementById('>=33');
-					over32.setAttribute('class', 'hide-this')
-					var over28 = document.getElementById('>=27');
-					over28.setAttribute('class', 'hide-this')
-					var less27 = document.getElementById('<27');
-					less27.setAttribute('class', 'hide-this')
-					var invalidAns = document.getElementById('invalid1');
-					invalidAns.setAttribute('class', 'hide-this')
+					hide51();
+					hide33();
+					hide27();
+					hide26();
+					hideInvalid();
 					guess = Number.parseInt(document.getElementById('round1-guess').value);
 					break;
 	    	} else if (guess >= 33) {
 	    		var over32 = document.getElementById('>=33');
 					over32.setAttribute('class', 'show-this')
-					var over50 = document.getElementById('51+');
-					over50.setAttribute('class', 'hide-this')
-					var over36 = document.getElementById('>=37');
-					over36.setAttribute('class', 'hide-this')
-					var over28 = document.getElementById('>=27');
-					over28.setAttribute('class', 'hide-this')
-					var less27 = document.getElementById('<27');
-					less27.setAttribute('class', 'hide-this')
-					var invalidAns = document.getElementById('invalid1');
-					invalidAns.setAttribute('class', 'hide-this')
+					hide51();
+					hide37();
+					hide27();
+					hide26();
+					hideInvalid();
 					guess = Number.parseInt(document.getElementById('round1-guess').value);
 					break;
 	    	} else if (guess >= 27) {   
 	    		var over28 = document.getElementById('>=27');
 					over28.setAttribute('class', 'show-this')
-					var over50 = document.getElementById('51+');
-					over50.setAttribute('class', 'hide-this')
-					var over36 = document.getElementById('>=37');
-					over36.setAttribute('class', 'hide-this')
-					var over32 = document.getElementById('>=33');
-					over32.setAttribute('class', 'hide-this')
-					var less27 = document.getElementById('<27');
-					less27.setAttribute('class', 'hide-this')
-					var invalidAns = document.getElementById('invalid1');
-					invalidAns.setAttribute('class', 'hide-this')
+					hide51();
+					hide37();
+					hide33();
+					hide26();
+					hideInvalid();
 					guess = Number.parseInt(document.getElementById('round1-guess').value);
 					break;
 	    	} else if (guess < 27) {
 	    		var less27 = document.getElementById('<27');
 					less27.setAttribute('class', 'show-this')
-					var over50 = document.getElementById('51+');
-					over50.setAttribute('class', 'hide-this')
-					var over36 = document.getElementById('>=37');
-					over36.setAttribute('class', 'hide-this')
-					var over32 = document.getElementById('>=33');
-					over32.setAttribute('class', 'hide-this')
-					var over28 = document.getElementById('>=27');
-					over28.setAttribute('class', 'hide-this')
-					var invalidAns = document.getElementById('invalid1');
-					invalidAns.setAttribute('class', 'hide-this')
+					hide51();
+					hide37();
+					hide33();
+					hide27();
+					hideInvalid();
 					guess = Number.parseInt(document.getElementById('round1-guess').value);
 					break;
 	    	} else {
 	    		var invalidAns = document.getElementById('invalid1');
 					invalidAns.setAttribute('class', 'show-this')
-					var over50 = document.getElementById('51+');
-					over50.setAttribute('class', 'hide-this')
-					var over36 = document.getElementById('>=37');
-					over36.setAttribute('class', 'hide-this')
-					var over32 = document.getElementById('>=33');
-					over32.setAttribute('class', 'hide-this')
-					var over28 = document.getElementById('>=27');
-					over28.setAttribute('class', 'hide-this')
-					var less27 = document.getElementById('<27');
-					less27.setAttribute('class', 'hide-this')
+					hide51();
+					hide37();
+					hide33();
+					hide27();
+					hide26();
 					guess = Number.parseInt(document.getElementById('round1-guess').value);
 					break;
 	  		};
