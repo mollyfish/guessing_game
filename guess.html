@@ -14,14 +14,18 @@
       <button id="play-now" name="play-now" class="show-this">Play Now</button>
   </header>
   <main>
+    <section id="round1">
     <section id="round1-question" class="hide-this">
-      <h3>How many states has Molly visited?</h3>
-        <label for="round1-guess">Enter your guess here: </label>
-        <input type="text" id="round1-guess" name="round1-guess" placeholder="50" maxlength="2" size="4">
-        <button type="submit" id="round1-button">Submit</button>
+      <h3>Round One</h3>
+        <p>How many states has Molly visited?</p>
+        <form name="guess-visited">
+          <label for="round1-guess">Enter your guess here: </label>
+          <input type="text" id="round1-guess" name="round1-guess" placeholder="50" maxlength="2" size="4">
+          <button type="submit" id="round1-button">Submit</button>
+        </form>
     </section>
-      <section id="50+" class="hide-this">
-        <p>Ummm, how many states are there, again?</p>
+      <section id="51+" class="hide-this">
+        <p>Ummm, how many states are there? Guess again!</p>
       </section>
       <section id=">=37" class="hide-this">
         <p>Nice try, but Molly's nowhere near that well traveled.</p>
@@ -32,17 +36,21 @@
       <section id=">=27" class="hide-this">
         <p>So close, but TOO LOW.</p>
       </section>
-      <section id=">27" class="hide-this">
+      <section id="<27" class="hide-this">
         <p>Guess again, Molly has been to waaaaay more states than that.</p>
       </section>
       <section id="invalid1" class="hide-this">
-        <p>I didd't understand your answer. Please try again.</p>
+        <p>I didn't understand your answer. Please try again.</p>
       </section>
       <section id="congrats1" class="hide-this">
-        <p>YOU DID IT!!!</p>
+        <p>You guessed it!  Molly has been to 32 states.</p>
+        <button type="submit" id="round2-start">Start Round Two</button>
+        <img src="images/visited-states.png" />
+      </section>
       </section>
     <section id="round2-question" class="hide-this">
-      <h3>Molly has 18 states left to visit. Where is she going next?</h3>
+      <h3>Round Two</h3>
+      <p>Molly has 18 states left to visit. Where is she going next?</p>
       <img src="images/unvisited-states.png" />
       <h4>Possibilities:</h4>
       <ul>
@@ -68,7 +76,7 @@
       <form name="next-state">
         <label for="next-state">Guess a state: </label>
         <input type="text" id="round2-guess" name="round2-guess" placeholder="State name">
-        <button type="submit">Submit</button>
+        <button type="submit" id="round2-button">Submit</button>
       </form>
     </section>
       <section id="hint1" class="hide-this">
