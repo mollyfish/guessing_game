@@ -46,9 +46,6 @@
 			var invalidAns = document.getElementById('invalid1'); //5
 			invalidAns.setAttribute('class', 'hide-this')
 		}
-
-		var rangePrompts = [hide51, hide37, hide33, hide27, hide26, hideInvalid];
-
 		playFirstRound();
 
 		function playFirstRound() {
@@ -132,17 +129,6 @@
 	var elSecondButton = document.getElementById('round2-start');
 	elSecondButton.onclick = startRoundTwo;
 
-	function Hint(text) {
-    this.text = text;
-
-  }
-  var hint1 = new Hint('The state motto is "Agriculture and Commerce"');
-  var hint2 = new Hint('The state bird is the Mockingbird');
-  var hint3 = new Hint('The highest point in the state is Clingman\'s Dome');
-  var hint4 = new Hint('The state capitol is Nashville');
-  var hint5 = new Hint('The largest city in the state is Memphis');
-  var hintList = ['holder', hint1, hint2, hint3, hint4, hint5];
-
 	function startRoundTwo() {
 		var endRoundOne = document.getElementById('round1');
 		endRoundOne.setAttribute('class', 'hide-this')
@@ -151,55 +137,66 @@
 	}
 
 	var userInputTwo;
-	var form2 = document.getElementById('round2-button');
+	var form2 = document.getElementById('round2-button1');
 	
 	form2.addEventListener("click", function (event) {
 		event.preventDefault();
-		var userInputTwo = document.getElementById('round2-guess').value;
+		var userInputTwo = document.getElementById('round2-guess1').value;
 		var guess2 = userInputTwo;
 
 		playSecondRound();
 
 		function playSecondRound() {
 			var answer2 = 'tennessee';
-			var counter = 0;
-  		while (true) {
+			//var counter = 0;
+  		
   			
     		if (guess2 === answer2) {
     			var wonRound2 = document.getElementById('congrats2');
 					wonRound2.setAttribute('class', 'show-this')
-    			break;
 	    	} else {
-	    		counter++;
-	    		console.log(counter);
-	    			if (counter > 5){
-	    				var lostRound2 = document.getElementById('fail-msg');
-							lostRound2.setAttribute('class', 'show-this')
-							var shownHint = document.getElementById('hintbox')
-	    				shownHint.setAttribute('class', 'hide-this')
-							break;
-	    			}
-	    		function displayHint() {
-	    			var hintToShow = '<p>' + hintList[counter].text + '</p>';
-	    			console.log(hintToShow);
-	    			var shownHint = document.getElementById('hintbox')
-	    			shownHint.setAttribute('class', 'show-this')
-	    			document.getElementById('hintbox').innerHTML = hintToShow;
-	    		}
-	    		displayHint();
-	    		
 
-	    	};	/*else {
-	    		var lostRound2 = document.getElementById('fail-msg');
-					lostRound2.setAttribute('class', 'show-this')
-					break;
-				};*/
-			};
+
+
+	    		for (var guesses = 1; guesses <=5; guesses++) {
+	    				
+	    				function changeButton() {
+				    			var buttonChange = document.getElementById('round2-button1')
+				    			buttonChange.setAttribute('id', 'round2-button2')
+				    			var inputChange = document.getElementById('round2-guess2')
+				    			inputChange.setAttribute('id', 'round2-guess2')
+				    		}
+
+	    				function Hint(text) {
+	    					this.text = text;
+	  					}
+
+						  var hint1 = new Hint('The state motto is "Agriculture and Commerce"');
+						  var hint2 = new Hint('The state bird is the Mockingbird');
+						  var hint3 = new Hint('The highest point in the state is Clingman\'s Dome');
+						  var hint4 = new Hint('The state capitol is Nashville');
+						  var hint5 = new Hint('The largest city in the state is Memphis');
+						  var hintList = ['holder', hint1, hint2, hint3, hint4, hint5];
+
+			    		function displayHint() {
+			    			var hintToShow = '<p>' + hintList[guesses].text + '</p>';
+			    			console.log(hintToShow);
+			    			var shownHint = document.getElementById('hintbox')
+			    			shownHint.setAttribute('class', 'show-this')
+			    			document.getElementById('hintbox').innerHTML = hintToShow;
+			    			console.log(guesses + 'started doing stuff. hint:' + hintToShow);
+			    			changeButton();
+			    			guess2 = document.getElementById('round2-guess2').value;
+			    		}
+		    			displayHint();
+	    		}
+	    	};	
+			
 		}
 	})
 		
 
-	//functions that should be called whenever someone hits Submit should be placed inside this event listener
+	
 
 
 
