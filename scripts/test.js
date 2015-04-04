@@ -17,20 +17,22 @@
 		playButton.setAttribute('class', 'hide-this')
 	}
 
-	form.addEventListener("submit", function (event) {
+	form.addEventListener("click", function (event) {
 		event.preventDefault();
-		userInputOne = Number.parseInt(document.getElementById('round1-guess').value);
+		var userInputOne = Number.parseInt(document.getElementById('round1-guess').value);
 		var guess = userInputOne;
 		console.log(guess);
-		playFirstRound;
+
+		playFirstRound();
 
 		function playFirstRound() {
-			console.log('begun');
+			console.log(guess);
 			var answer = 32;
 			//var guess = userInputOne;
   		while (true) {
     		if (guess === answer) {
     			console.log('working');
+    			break;
 	    	} else if (guess >= 51) {
 	      	guess = Number.parseInt(prompt('Ummm, how many states are there, again?'));
 	    	} else if (guess >= 37) {  //guess is within 5
@@ -46,6 +48,7 @@
 	  		};
   		};
   	}
+
 	})
 
 
