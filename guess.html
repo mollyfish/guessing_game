@@ -3,20 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <title>Travel Guessing Game</title>
-  <link rel="stylesheet" type="text/css" href="styles/guess.css">
+  <link rel="stylesheet" type="text/css" href="styles/test.css">
   
 </head>
 <body>
-  <header>
+  <header class="show-this">
     <h1>Travel Guessing Game</h1>
     <h2>Guess where Molly has been and where she's going next!</h2>
       <p>Please note that making the state names into proper nouns is very tricky, so forget what your grade school teachers taught you - for now, capitalization doesn't matter!  However, <em>correct spelling is vital</em>.</p>
-      <button id="play-now" name="play-now" class="initial-button">Play Now</button>
+      <button id="play-now" name="play-now" class="show-this">Play Now</button>
   </header>
   <main>
-    
-  
-    <section id="round2">
+    <section id="round1-question" class="hide-this">
+      <h3>How many states has Molly visited?</h3>
+        <label for="round1-guess">Enter your guess here: </label>
+        <input type="text" id="round1-guess" name="round1-guess" placeholder="50" maxlength="2" size="4">
+        <button type="submit" id="round1-button">Submit</button>
+    </section>
+      <section id="50+" class="hide-this">
+        <p>Ummm, how many states are there, again?</p>
+      </section>
+      <section id=">=37" class="hide-this">
+        <p>Nice try, but Molly's nowhere near that well traveled.</p>
+      </section>
+      <section id=">=33" class="hide-this">
+        <p>So close, but TOO HIGH.</p>
+      </section>
+      <section id=">=27" class="hide-this">
+        <p>So close, but TOO LOW.</p>
+      </section>
+      <section id=">27" class="hide-this">
+        <p>Guess again, Molly has been to waaaaay more states than that.</p>
+      </section>
+      <section id="invalid1" class="hide-this">
+        <p>I didd't understand your answer. Please try again.</p>
+      </section>
+      <section id="congrats1" class="hide-this">
+        <p>YOU DID IT!!!</p>
+      </section>
+    <section id="round2-question" class="hide-this">
       <h3>Molly has 18 states left to visit. Where is she going next?</h3>
       <img src="images/unvisited-states.png" />
       <h4>Possibilities:</h4>
@@ -38,14 +63,40 @@
         <li>Connecticut</li>
         <li>West Virginia</li>
         <li>Delaware</li>
-        <li>New jersey</li>
+        <li>New Jersey</li>
       </ul> 
       <form name="next-state">
-        <label for="guess2">Guess a state:</label>
-        <input type="text" id="guess2" name="guess2" placeholder="State name">
+        <label for="next-state">Guess a state: </label>
+        <input type="text" id="round2-guess" name="round2-guess" placeholder="State name">
         <button type="submit">Submit</button>
       </form>
     </section>
+      <section id="hint1" class="hide-this">
+        <p>Nope, here's a hint:</p>
+        <p>The state motto is "Agriculture and Commerce"</p>
+      </section>
+      <section id="hint2" class="hide-this">
+        <p>Nope, here's a hint:</p>
+        <p>The state bird is the Mockingbird</p>
+      </section>
+      <section id="hint3" class="hide-this">
+        <p>Nope, here's a hint:</p>
+        <p>The highest point in the state is Clingman's Dome</p>
+      </section>
+      <section id="hint4" class="hide-this">
+        <p>Nope, here's a hint:</p>
+        <p>The state capitol is Nashville</p>
+      </section>
+      <section id="hint5" class="hide-this">
+        <p>Nope, here's a hint:</p>
+        <p>The largest city in the state is Memphis</p>
+      </section>
+      <section id="fail-msg" class="hide-this">
+        <p>You didn't get it. Sorry! Molly will be heading for Tennessee next.</p>
+      </section>
+      <section id="congrats2" class="hide-this">
+        <p>YOU GUESSED IT!!!</p>
+      </section>
   </main>
   <footer>
     <p>Check out this cool site to <a href="http://www.amcharts.com/visited_states/">make your own maps</a> of the places you've been!</p>

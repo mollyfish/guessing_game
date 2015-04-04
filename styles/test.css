@@ -1,3 +1,7 @@
-footer p {
-	color: red;
+.show-this {
+	display: inline;
+}
+
+.hide-this {	
+	display: none;
 }
