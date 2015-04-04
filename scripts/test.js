@@ -138,68 +138,73 @@
   	} //end function playFirstRound
 	}) //end event listener
 
-	var userInputTwo;
-	var form2 = document.getElementById('round2-start');
-	
-	form2.addEventListener("click", function (event) {
-		event.preventDefault();
-		var userInputTwo = document.getElementById('round2-guess');
-		var guess2 = userInputTwo;
-		console.log('working');
+	var elSecondButton = document.getElementById('round2-start');
+	elSecondButton.onclick = startRoundTwo;
+
+	function Hint(text) {
+    this.text = text;
+
+  }
+  var hint1 = new Hint('The state motto is "Agriculture and Commerce"');
+  var hint2 = new Hint('The state bird is the Mockingbird');
+  var hint3 = new Hint('The highest point in the state is Clingman\'s Dome');
+  var hint4 = new Hint('The state capitol is Nashville');
+  var hint5 = new Hint('The largest city in the state is Memphis');
+  var hintList = ['holder', hint1, hint2, hint3, hint4, hint5];
+
+	function startRoundTwo() {
 		var endRoundOne = document.getElementById('round1');
 		endRoundOne.setAttribute('class', 'hide-this')
 		var begRoundTwo = document.getElementById('round2-question');
 		begRoundTwo.setAttribute('class', 'show-this')
+	}
+
+	var userInputTwo;
+	var form2 = document.getElementById('round2-button');
+	
+	form2.addEventListener("click", function (event) {
+		event.preventDefault();
+		var userInputTwo = document.getElementById('round2-guess').value;
+		var guess2 = userInputTwo;
 
 		playSecondRound();
 
 		function playSecondRound() {
-			console.log('working!!!')
-			var guesses = 1;
-  		var gotIt = false;
-		  var answer2 = 'tennessee';
-		  var unVisitedStates = ['nebraska', 'michigan', 'indiana', 'ohio', 'kentucky', 'oklahoma', 
-                     		   'kansas', 'missouri', 'arkansas', 'georgia', 'florida', 'tennessee', 
-                 		       'south carolina', 'north carolina', 'connecticut', 'west virginia', 
-                    		    'delaware', 'new jersey'];
-		  var visitedStates = ['oregon', 'alaska', 'idaho', 'colorado', 'california', 'nevada', 
-		                      'hawaii', 'montana', 'wyoming', 'north dakota', 'south dakota', 
-		                      'minnesota', 'wisconsin', 'iowa', 'illinois', 'arizona', 'new mexico',
-		                      'utah', 'texas', 'louisiana', 'mississippi', 'alabama', 'maine', 
-		                      'vermont', 'new hampshire', 'rhode island', 'massachusetts', 
-		                      'virginia', 'maryland', 'pennsylvania','new york'];
- 			var toVisit = unVisitedStates.join(', ');
+			var answer2 = 'tennessee';
+			var counter = 0;
+  		while (true) {
+  			
+    		if (guess2 === answer2) {
+    			var wonRound2 = document.getElementById('congrats2');
+					wonRound2.setAttribute('class', 'show-this')
+    			break;
+	    	} else {
+	    		counter++;
+	    		console.log(counter);
+	    			if (counter > 5){
+	    				var lostRound2 = document.getElementById('fail-msg');
+							lostRound2.setAttribute('class', 'show-this')
+							var shownHint = document.getElementById('hintbox')
+	    				shownHint.setAttribute('class', 'hide-this')
+							break;
+	    			}
+	    		function displayHint() {
+	    			var hintToShow = '<p>' + hintList[counter].text + '</p>';
+	    			console.log(hintToShow);
+	    			var shownHint = document.getElementById('hintbox')
+	    			shownHint.setAttribute('class', 'show-this')
+	    			document.getElementById('hintbox').innerHTML = hintToShow;
+	    		}
+	    		displayHint();
+	    		
 
-		  function Hint(text) {
-    	this.text = text;
- 			}
-
- 			var hint1 = new Hint('The state motto is "Agriculture and Commerce"');
-		  var hint2 = new Hint('The state bird is the Mockingbird');
-		  var hint3 = new Hint('The highest point in the state is Clingman\'s Dome');
-		  var hint4 = new Hint('The state capitol is Nashville');
-		  var hint5 = new Hint('The largest city in the state is Memphis');
-		  var hintList = ['holder', hint1, hint2, hint3, hint4, hint5];
-			
-			for (var guesses = 1; guesses <= 5; guesses++) {
-        if (guess2 === answer2) {
-          gotIt = true
-          break;
-        }
-        guess2 = prompt('Nope!\n\nHere\'s a hint: ' + hintList[guesses].text + '.').toLowerCase();
-      }
-      if (gotIt) {
-        alert('You got it! It took you ' + guesses + ' guesses.');
-        
-      } else {
-        alert('You didn\'t get it. Sorry! Molly will be heading for Tennessee next.');
-        
-      };
-
-
-
-			}
-
+	    	};	/*else {
+	    		var lostRound2 = document.getElementById('fail-msg');
+					lostRound2.setAttribute('class', 'show-this')
+					break;
+				};*/
+			};
+		}
 	})
 		
 
