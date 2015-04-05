@@ -138,68 +138,64 @@
 
 	var userInputTwo;
 	var form2 = document.getElementById('round2-button1');
-	
-	form2.addEventListener("click", function (event) {
-		event.preventDefault();
-		var userInputTwo = document.getElementById('round2-guess1').value;
-		var guess2 = userInputTwo;
+	var counter = 1;
 
-		playSecondRound();
+	for (var guesses = 1; guesses <=5; guesses++) {
+		stateGuess();
+	};
 
-		function playSecondRound() {
-			var answer2 = 'tennessee';
-			//var counter = 0;
-  		
-  			
-    		if (guess2 === answer2) {
-    			var wonRound2 = document.getElementById('congrats2');
-					wonRound2.setAttribute('class', 'show-this')
-	    	} else {
-
-
-
-	    		for (var guesses = 1; guesses <=5; guesses++) {
-	    				
-	    				function changeButton() {
-				    			var buttonChange = document.getElementById('round2-button1')
-				    			buttonChange.setAttribute('id', 'round2-button2')
-				    			var inputChange = document.getElementById('round2-guess2')
-				    			inputChange.setAttribute('id', 'round2-guess2')
-				    		}
-
-	    				function Hint(text) {
-	    					this.text = text;
-	  					}
-
-						  var hint1 = new Hint('The state motto is "Agriculture and Commerce"');
-						  var hint2 = new Hint('The state bird is the Mockingbird');
-						  var hint3 = new Hint('The highest point in the state is Clingman\'s Dome');
-						  var hint4 = new Hint('The state capitol is Nashville');
-						  var hint5 = new Hint('The largest city in the state is Memphis');
-						  var hintList = ['holder', hint1, hint2, hint3, hint4, hint5];
-
-			    		function displayHint() {
-			    			var hintToShow = '<p>' + hintList[guesses].text + '</p>';
-			    			console.log(hintToShow);
-			    			var shownHint = document.getElementById('hintbox')
-			    			shownHint.setAttribute('class', 'show-this')
-			    			document.getElementById('hintbox').innerHTML = hintToShow;
-			    			console.log(guesses + 'started doing stuff. hint:' + hintToShow);
-			    			changeButton();
-			    			guess2 = document.getElementById('round2-guess2').value;
-			    		}
-		    			displayHint();
-	    		}
-	    	};	
+	function stateGuess() {
+		form2.addEventListener("click", function (event) {
+			//this is when it needs to go get the new guess
+			event.preventDefault();
+			var userInputTwo = document.getElementById('round2-guess1').value;
+			var guess2 = userInputTwo;
 			
-		}
-	})
-		
+			function newInput() {
+		    var formChange = document.getElementById('next-state');
+		    var formContent = formChange.innerHTML;
+		    formChange.innerHTML = '<label for=\"next-state1\">Guess a state: </label><input type=\"text\" id=\"round2-guess1\" name=\"round2-guess1\" placeholder=\"State name\"><button type=\"submit\" id=\"round2-button1\">Submit</button>';
+			}
 
-	
+			function Hint(text) {
+		    this.text = text;
+		  }
 
+		  var hint1 = new Hint('The state motto is "Agriculture and Commerce"');
+			var hint2 = new Hint('The state bird is the Mockingbird');
+			var hint3 = new Hint('The highest point in the state is Clingman\'s Dome');
+			var hint4 = new Hint('The state capitol is Nashville');
+			var hint5 = new Hint('The largest city in the state is Memphis');
+			var hintList = ['holder', hint1, hint2, hint3, hint4, hint5];
 
-
-	
-
+			function displayHint() {
+				console.log(counter);
+				var hintToShow = '<p>Nope, here\'s a hint:</p><p>' + hintList[counter].text + '</p>';
+				console.log(hintToShow);
+				var shownHint = document.getElementById('hintbox')
+				shownHint.setAttribute('class', 'show-this')
+				document.getElementById('hintbox').innerHTML = hintToShow;
+				console.log(counter + 'started doing stuff. hint:' + hintToShow);
+				newInput();
+			}
+			playSecondRound();
+			function playSecondRound() {
+				var answer2 = 'tennessee';	
+	    		if (guess2 === answer2) {
+	    			var wonRound2 = document.getElementById('congrats2');
+						wonRound2.setAttribute('class', 'show-this')
+		    	} else {
+		    		displayHint();
+		    		counter++;
+		    		console.log(counter);
+		    			if (counter >5) {
+		    				var shownHint = document.getElementById('hintbox')
+								shownHint.setAttribute('class', 'hide-this')
+		    				var lostRound2 = document.getElementById('fail-msg');
+								lostRound2.setAttribute('class', 'show-this')
+		    			}
+		    	}
+		  }
+		})
+	}
 })();
