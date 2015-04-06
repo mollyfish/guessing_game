@@ -150,12 +150,7 @@
 			event.preventDefault();
 			var userInputTwo = document.getElementById('round2-guess1').value;
 			var guess2 = userInputTwo;
-			
-			function newInput() {
-		    var formChange = document.getElementById('next-state');
-		    var formContent = formChange.innerHTML;
-		    formChange.innerHTML = '<label for=\"next-state1\">Guess a state: </label><input type=\"text\" id=\"round2-guess1\" name=\"round2-guess1\" placeholder=\"State name\"><button type=\"submit\" id=\"round2-button1\">Submit</button>';
-			}
+			document.getElementById('next-state').reset();
 
 			function Hint(text) {
 		    this.text = text;
@@ -176,7 +171,6 @@
 				shownHint.setAttribute('class', 'show-this')
 				document.getElementById('hintbox').innerHTML = hintToShow;
 				console.log(counter + 'started doing stuff. hint:' + hintToShow);
-				newInput();
 			}
 			playSecondRound();
 			function playSecondRound() {
