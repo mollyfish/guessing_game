@@ -20,6 +20,8 @@
 				console.log('You win!');
 				var guessForm = document.getElementById('next-state')
 				guessForm.setAttribute('class', 'hide-this')
+				var wonRound2 = document.getElementById('congrats2')
+				wonRound2.setAttribute('class', 'show-this')
 			} else {
 				console.log('You lose!');
 				guesses++;
@@ -29,6 +31,8 @@
 			if (guesses > 4) {
 				var guessForm = document.getElementById('next-state')
 				guessForm.setAttribute('class', 'hide-this')
+				var lostRound2 = document.getElementById('fail-msg')
+				lostRound2.setAttribute('class', 'show-this')
 			}
 		})
 
