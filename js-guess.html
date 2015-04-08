@@ -31,9 +31,10 @@
     if (guess === answer) {
     	alert('You got it! Molly has visited 32 states.');
       var guess2 = prompt('Molly has 18 states left to visit. Where will she go next?'+'\n\n'+toVisit).toLowerCase();
+      //You already declared the variable guesses on line 3.
       for (var guesses = 1; guesses <= 5; guesses++) {
         if (guess2 === answer2) {
-          gotIt = true
+          gotIt = true  //missing semicolon
           break;
         }
         guess2 = prompt('Nope!\n\nHere\'s a hint: ' + hintList[guesses].text + '.').toLowerCase();
@@ -44,7 +45,7 @@
       } else {
         alert('You didn\'t get it. Sorry! Molly will be heading for Tennessee next.');
         break;
-      };
+      }; // no need for a ';' following else{}
     } else if (guess >= 51) {
       guess = Number.parseInt(prompt('Ummm, how many states are there, again?'));
     } else if (guess >= 37) {  
@@ -57,7 +58,7 @@
       guess = Number.parseInt(prompt('Guess again, Molly has been to waaaaay more states than that.'));
     } else {
       guess = Number.parseInt(prompt('I didn\'t understand your answer. Please try again.'));
-    };
-  };
+    }; // no need for a ';' following else{}
+  }; // no need for a ';' following while(){}
 })();
 </script>
